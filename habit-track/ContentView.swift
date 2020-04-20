@@ -28,9 +28,10 @@ struct ContentView: View {
                         destination: HabitDetail(habit: habit),
                                    label: { HabitPreview(habit: habit) } )
                 }
+                .onDelete(perform: { self.AllHabits.habits.remove(atOffsets: $0) } )
             }
-        .navigationBarTitle("Habit-Track")
-        .navigationBarItems(trailing:
+            .navigationBarTitle("Habit-Track")
+            .navigationBarItems(leading: EditButton(), trailing:
             Button(action: { self.addNewHabit = true },
                    label: { Text("Add") }  )
             )
