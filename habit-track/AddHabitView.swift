@@ -17,13 +17,13 @@ struct AddHabitView: View {
     @State private var startedTime = String()
     var body: some View {
         Form {
-            Section(header: Text("Name of habit")) {
+            Section(header: Text("Name of habit").font(.headline).padding(.top)) {
                 TextField("Name" ,text: $name)
             }
-            Section(header: Text("Description")) {
+            Section(header: Text("Description").font(.headline)) {
                 TextField("Description" ,text: $description)
             }
-            Section(header: Text("Started time")) {
+            Section(header: Text("Started time").font(.headline)) {
                 TextField("Time" ,text: $startedTime)
             }
             
