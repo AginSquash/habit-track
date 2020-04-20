@@ -53,12 +53,16 @@ struct HabitDetail: View {
             self.isAdding.toggle()
         }
         
+        if self.amountValue == String() {
+            return
+        }
+        
         if let addingValue = Int(self.amountValue) {
             if let index = self.AllHabits.habits.firstIndex(where: { $0.id == self.habit.id }) {
                 //Creating new object
-                let updatedHabit = HabitEvent(id: self.habit.id, name: self.habit.name, description: self.habit.description, totalTime: self.habit.totalTime + addingValue)
+                //let updatedHabit = HabitEvent(id: self.habit.id, name: self.habit.name, description: self.habit.description, totalTime: self.habit.totalTime + addingValue)
                 
-                self.AllHabits.habits[index] = updatedHabit
+                self.AllHabits.habits[index].AddTime(time: addingValue) 
                 
             } else { fatalError("Not founded UUID") }
         } else {

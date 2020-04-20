@@ -28,4 +28,9 @@ struct HabitEvent: Codable, Identifiable {
         self.description = description
         self.totalTime = totalTime
     }
+    
+    mutating func AddTime(time: Int)
+    {
+        self.totalTime += time
+    }
 }
