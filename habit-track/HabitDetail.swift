@@ -14,6 +14,7 @@ struct HabitDetail: View {
     
     @State private var isAdding = false
     @State private var amountValue = String()
+    @State private var showAlert = false
     
     var body: some View {
         Form {
@@ -34,23 +35,25 @@ struct HabitDetail: View {
                 Section {
                     HStack {
                         TextField("Time", text: $amountValue, onCommit: addTime)
-                            .keyboardType(.phonePad)
+                            .keyboardType(.numberPad)
                         Button(action: { self.addTime() }, label: { Image(systemName: "plus.circle") } )
                     }
                 }
                 .transition(.slide)
             }
         }
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Error!"), message: Text("Incorrect input!"), dismissButton: .default(Text("Ok")))
+        }
         .navigationBarTitle("Habit", displayMode: .inline)
     }
     
     func addTime() {
-        //need allert
         withAnimation {
             self.isAdding.toggle()
         }
         
-        if let addingValue = try? Int(self.amountValue) {
+        if let addingValue = Int(self.amountValue) {
             if let index = self.AllHabits.habits.firstIndex(where: { $0.id == self.habit.id }) {
                 //Creating new object
                 let updatedHabit = HabitEvent(id: self.habit.id, name: self.habit.name, description: self.habit.description, totalTime: self.habit.totalTime + addingValue)
@@ -58,6 +61,8 @@ struct HabitDetail: View {
                 self.AllHabits.habits[index] = updatedHabit
                 
             } else { fatalError("Not founded UUID") }
+        } else {
+            self.showAlert = true
         }
         
         self.amountValue = String()
