@@ -59,10 +59,9 @@ struct HabitDetail: View {
         
         if let addingValue = Int(self.amountValue) {
             if let index = self.AllHabits.habits.firstIndex(where: { $0.id == self.habit.id }) {
-                //Creating new object
-                //let updatedHabit = HabitEvent(id: self.habit.id, name: self.habit.name, description: self.habit.description, totalTime: self.habit.totalTime + addingValue)
                 
-                self.AllHabits.habits[index].AddTime(time: addingValue) 
+                self.AllHabits.habits[index].AddTime(time: addingValue)
+                saveHabits(AllHabits: self.AllHabits)
                 
             } else { fatalError("Not founded UUID") }
         } else {
@@ -75,9 +74,8 @@ struct HabitDetail: View {
 
 struct HabitDetail_Previews: PreviewProvider {
 
+    
     static var previews: some View {
-        HabitDetail(habit: HabitEvent(name: "Playing", description: "Playing the game", totalTime: 20))
-        //id: Habits().habits[0].id)
-
+        HabitDetail(habit: HabitEvent(name: "Playing", description: "Playing the game", totalTime: 20)).environmentObject(Habits())
     }
 }

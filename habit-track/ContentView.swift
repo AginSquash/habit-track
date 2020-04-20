@@ -8,17 +8,36 @@
 
 import SwiftUI
 
+func saveHabits(AllHabits: Habits) // fix for https://bugs.swift.org/browse/SR-12089
+{
+    let encoder = JSONEncoder()
+    if let encoded = try? encoder.encode(AllHabits.habits) {
+        UserDefaults.standard.set(encoded, forKey: "habits")
+    }
+}
+
 struct ContentView: View {
     @EnvironmentObject var AllHabits: Habits
+    @State private var addNewHabit = false
     
     var body: some View {
         NavigationView {
-            List(AllHabits.habits) { habit in
-                NavigationLink(
-                    destination: HabitDetail(habit: habit),
-                               label: { HabitPreview(habit: habit) } )
+            List {
+                ForEach(AllHabits.habits) { habit in
+                    NavigationLink(
+                        destination: HabitDetail(habit: habit),
+                                   label: { HabitPreview(habit: habit) } )
+                }
             }
         .navigationBarTitle("Habit-Track")
+        .navigationBarItems(trailing:
+            Button(action: { self.addNewHabit = true },
+                   label: { Text("Add") }  )
+            )
+        .sheet(isPresented: $addNewHabit)
+            {
+                AddHabitView().environmentObject(self.AllHabits)
+            }
         }
     }
 }

@@ -9,10 +9,30 @@
 import Foundation
 
 class Habits: ObservableObject {
-    @Published var habits = [HabitEvent]()
+    private static let itemsKey = "habits"
+    
+    @Published var habits: [HabitEvent] {
+        didSet {
+            let encoder = JSONEncoder()
+            
+            if let encoded = try? encoder.encode(habits) { //not worked!
+                UserDefaults.standard.set(encoded, forKey: Self.itemsKey)
+            }
+        }
+    }
     
     init()
     {
-        self.habits = [HabitEvent(name: "Play", description: "Test decs", totalTime: 120), HabitEvent(name: "Eating", description: "Test decs2", totalTime: 20)]
+        //self.habits = [HabitEvent(name: "Play", description: "Test decs", totalTime: 120), HabitEvent(name: "Eating", description: "Test decs2", totalTime: 20)]
+        if let items = UserDefaults.standard.data(forKey: Self.itemsKey)
+        {
+            let decoder = JSONDecoder()
+            if let decoded = try? decoder.decode([HabitEvent].self, from: items)
+            {
+                self.habits = decoded
+                return
+            }
+        }
+        self.habits = [HabitEvent]()
     }
 }
