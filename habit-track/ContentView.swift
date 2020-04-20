@@ -9,13 +9,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var AllHabits: Habits
+    
     var body: some View {
-        Text("Hello, World!")
+        NavigationView {
+            List(AllHabits.habits) { habit in
+                NavigationLink(
+                    destination: HabitDetail(habit: habit),
+                               label: { HabitPreview(habit: habit) } )
+            }
+        .navigationBarTitle("Habit-Track")
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(Habits())
     }
 }

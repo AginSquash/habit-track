@@ -13,6 +13,10 @@
 		CD0DB988244DB8FC00CEFE9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD0DB987244DB8FC00CEFE9B /* Assets.xcassets */; };
 		CD0DB98B244DB8FC00CEFE9B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD0DB98A244DB8FC00CEFE9B /* Preview Assets.xcassets */; };
 		CD0DB98E244DB8FC00CEFE9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD0DB98C244DB8FC00CEFE9B /* LaunchScreen.storyboard */; };
+		CD0DB996244DBBE200CEFE9B /* HabitEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0DB995244DBBE200CEFE9B /* HabitEvent.swift */; };
+		CDE4E558244DBD4100B53769 /* Habits.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE4E557244DBD4100B53769 /* Habits.swift */; };
+		CDE4E55A244DBD9B00B53769 /* HabitPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE4E559244DBD9B00B53769 /* HabitPreview.swift */; };
+		CDE4E55C244DC02500B53769 /* HabitDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE4E55B244DC02500B53769 /* HabitDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		CD0DB98A244DB8FC00CEFE9B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CD0DB98D244DB8FC00CEFE9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD0DB98F244DB8FC00CEFE9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD0DB995244DBBE200CEFE9B /* HabitEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitEvent.swift; sourceTree = "<group>"; };
+		CDE4E557244DBD4100B53769 /* Habits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habits.swift; sourceTree = "<group>"; };
+		CDE4E559244DBD9B00B53769 /* HabitPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitPreview.swift; sourceTree = "<group>"; };
+		CDE4E55B244DC02500B53769 /* HabitDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +67,10 @@
 				CD0DB981244DB8FB00CEFE9B /* AppDelegate.swift */,
 				CD0DB983244DB8FB00CEFE9B /* SceneDelegate.swift */,
 				CD0DB985244DB8FB00CEFE9B /* ContentView.swift */,
+				CDE4E55B244DC02500B53769 /* HabitDetail.swift */,
+				CD0DB995244DBBE200CEFE9B /* HabitEvent.swift */,
+				CDE4E557244DBD4100B53769 /* Habits.swift */,
+				CDE4E559244DBD9B00B53769 /* HabitPreview.swift */,
 				CD0DB987244DB8FC00CEFE9B /* Assets.xcassets */,
 				CD0DB98C244DB8FC00CEFE9B /* LaunchScreen.storyboard */,
 				CD0DB98F244DB8FC00CEFE9B /* Info.plist */,
@@ -147,6 +159,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD0DB982244DB8FB00CEFE9B /* AppDelegate.swift in Sources */,
+				CDE4E558244DBD4100B53769 /* Habits.swift in Sources */,
+				CD0DB996244DBBE200CEFE9B /* HabitEvent.swift in Sources */,
+				CDE4E55C244DC02500B53769 /* HabitDetail.swift in Sources */,
+				CDE4E55A244DBD9B00B53769 /* HabitPreview.swift in Sources */,
 				CD0DB984244DB8FB00CEFE9B /* SceneDelegate.swift in Sources */,
 				CD0DB986244DB8FB00CEFE9B /* ContentView.swift in Sources */,
 			);
